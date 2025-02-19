@@ -1,6 +1,12 @@
 const http = require('http');
 const fs = require('fs');
 const qs = require('querystring');
+// * 외부에서 들어오는 js 파일 가져오기 
+// * cf = createFile
+// * rf = readFile
+// * uf = updateFile
+// * df = deleteFile
+const rf = require('./readFile.js');
 
 function stringSplit(data){
   let dataArray = [];
@@ -36,6 +42,8 @@ const server = http.createServer(function(request, response){
   if(request.method === 'POST'){
     if(request.url === '/formGET'){
       // 미리 변수 선언
+      // ! qsObject = 쿼리 스트링을 객체로 반환 
+      // ! JSONGet = 객체로 된 qs를 JSON 반환
       let qsObject, JSONGet;
       // 들어오는 데이터 확인
       request.on('data',function(data){
@@ -44,7 +52,8 @@ const server = http.createServer(function(request, response){
         qsObject = qs.parse(dataInit)
         // 변환된 객체 JSON으로 변환
         JSONGet = JSON.stringify(qsObject)
-        // const result = stringSplit(data)
+        // * 안쓰는 함수
+        //  const result = stringSplit(data)
         console.log(qsObject);
         console.log(JSONGet);
 
