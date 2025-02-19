@@ -35,15 +35,22 @@ const server = http.createServer(function(request, response){
   // POST 방식 
   if(request.method === 'POST'){
     if(request.url === '/formGET'){
+      // 미리 변수 선언
+      let qsObject, JSONGet;
       // 들어오는 데이터 확인
       request.on('data',function(data){
         const dataInit = data.toString();
-        const qsCheck = qs.parse(dataInit)
+        // 쿼리 스트링을 객체로 변환
+        qsObject = qs.parse(dataInit)
+        // 변환된 객체 JSON으로 변환
+        JSONGet = JSON.stringify(qsObject)
         // const result = stringSplit(data)
-        console.log(qsCheck);
+        console.log(qsObject);
+        console.log(JSONGet);
 
       })
-      const filePath = fs.readFileSync('./formGET.html')
+      // formGET을 불러옴
+      const filePath = fs.readFileSync('./formGET.html')  
       response.writeHead(200,{'Content-Type': 'text/html'}).end(filePath)
     }
 
