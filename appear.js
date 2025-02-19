@@ -16,10 +16,10 @@ const server = http.createServer(function(request, response){
   }
 
   // POST 방식 
-  if(request.metod === 'POST'){
+  if(request.method === 'POST'){
     if(request.url === '/formGET'){
       // 들어오는 데이터 확인
-      response.on('data',function(data){
+      request.on('data',function(data){
         console.log(data);
       })
       const filePath = fs.readFileSync('./formGET.html')
