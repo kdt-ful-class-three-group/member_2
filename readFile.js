@@ -1,0 +1,1 @@
+console.log("readFile test입니다")
