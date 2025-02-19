@@ -6,7 +6,10 @@ const qs = require('querystring');
 // * rf = readFile
 // * uf = updateFile
 // * df = deleteFile
+const cf = require('./createFile.js');
 const rf = require('./readFile.js');
+const uf = require('./updateFile.js');
+const df = require('./deleteFile.js');
 
 function stringSplit(data){
   let dataArray = [];
