@@ -2,14 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const qs = require('querystring');
 // * 외부에서 들어오는 js 파일 가져오기 
-// * cf = createFile
-// * rf = readFile
-// * uf = updateFile
-// * df = deleteFile
-const cf = require('./createFile.js');
-const rf = require('./readFile.js');
-const uf = require('./updateFile.js');
-const df = require('./deleteFile.js');
+const createNewFile = require('./createFile.js');
 
 function stringSplit(data){
   let dataArray = [];
@@ -57,9 +50,8 @@ const server = http.createServer(function(request, response){
         JSONGet = JSON.stringify(qsObject)
         // * 안쓰는 함수
         //  const result = stringSplit(data)
-        console.log(qsObject);
-        console.log(JSONGet);
-
+        // * JSON 파일 생성 createFile.js
+        createNewFile(JSONGet)
       })
       // formGET을 불러옴
       const filePath = fs.readFileSync('./formGET.html')  
