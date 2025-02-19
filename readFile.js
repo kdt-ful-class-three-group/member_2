@@ -6,9 +6,22 @@
 
 const fs = require('fs')
 
-fs.readFile('./README.md','utf-8', (err, data) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(data);
+
+// ! 있는 파일의 데이터를 확인
+fs.readFile('./index.html','utf-8', (err, data) => {
+  // * 에러나면 throw로 에러 처리
+  if (err) throw err;
+
+  // * 데이터 표출
+  console.log(data)
+
 });
+
+// try {
+//   fs.appendFileSync('message.txt', 'data to append');
+//   console.log('The "data to append" was appended to file!');
+// } catch (err) {
+//   /* Handle the error */
+//   console.log('error')
+// } 
+// fs.appendFile()
