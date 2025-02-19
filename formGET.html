@@ -6,6 +6,20 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>제출 되었습니다.</h1>  
+  <h1>안녕하세요</h1>
+  <form action="/home" method="get">
+    <div>
+      <label for="fileName"></label>
+      <input type="text" name="fileName" placeholder="제목">
+    </div>
+
+    <div>
+      <label for="fileContent"></label>
+      <input type="text" name="fileContent" placeholder="내용">
+    </div>
+
+    <button type="submit">제출</button>
+  </form>
+  <script src="./app.js"></script>
 </body>
 </html>
